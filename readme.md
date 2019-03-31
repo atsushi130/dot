@@ -10,6 +10,16 @@
 
 ## Configuration
 Please make dot.json confirm to the format, or generate by `dot init` command. And you upload it to dotfiles respository.
+```
+[
+  {
+    "name": "filename",
+    "input": "input_file_path_from_github",
+    "output": "output_file_path_to_local",
+    "chain": [] // chain install filenames (optional)
+  },
+]
+```
 
 ## Support commands
 ```console
