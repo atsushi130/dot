@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol FileEndpoint {
+    var filePath: String { get }
+}
