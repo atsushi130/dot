@@ -12,26 +12,25 @@
 Please make dot.json confirm to the format, or generate by `dot init` command. And you upload it to dotfiles respository.
 
 ## Support commands
-```
-❯ dot install ${filename}
-❯ dot install --all
+```console
+❯ dot install [--chain | -c] ${filename}
 ```
 
-```
+```console
 ❯ dot token ${github_token}
 ```
 
-```
+```console
 ❯ dot url ${github_url}
 ```
 
 **coming soon**
-```
+```console
 ❯ dot init
 ```
 
 ## Installation via Homebrew
-```
+```console
 ❯ brew tap atsushi130/tap
 ❯ brew install dot
 ```
@@ -40,6 +39,7 @@ Please make dot.json confirm to the format, or generate by `dot init` command. A
 ## Using Library
 - [Commandy](https://github.com/atsushi130/Commandy)
 - [Swifty](https://github.com/atsushi130/Swifty)
+- [Moya](https://github.com/Moya/Moya)
 
 ## License
 dot is available under the MIT license. See the [LICENSE file](https://github.com/atsushi130/dot/blob/master/license-mit).
