@@ -78,7 +78,7 @@ extension GithubApi.FileContentService {
     
     /// sync dot.json
     /// Returns: Dotfiles
-    func syncDotConfiguration() -> Observable<[DotfileConfiguration]> {
+    func syncDotfileConfigurations() -> Observable<[DotfileConfiguration]> {
         return self.fetchGithubFile(path: "dot.json")
             .map { githubFile -> [DotfileConfiguration] in
                 guard let data = githubFile.decodedContent.data(using: .utf8),
