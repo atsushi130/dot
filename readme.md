@@ -8,6 +8,12 @@
     <a href=".license-mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a> 
 </p>
 
+## Installation via Homebrew
+```console
+❯ brew tap atsushi130/tap
+❯ brew install dot
+```
+
 ## Configuration
 Please make dot.json confirm to the format, or generate by `dot init` command. And you upload it to dotfiles respository.
 ```
@@ -21,15 +27,31 @@ Please make dot.json confirm to the format, or generate by `dot init` command. A
 ]
 ```
 
+- [Example dot.json](https://github.com/atsushi130/dotfiles/blob/master/dot.json)
+
+## Usage
+First, generate Github access token. [[Here](https://github.com/settings/tokens/new)]
+![image](https://user-images.githubusercontent.com/11363154/55290785-9526c000-5412-11e9-92cc-861da7248307.png)
+
+Next, register generated Github access token and repository to dot.
+```console
+❯ dot token ${generated_github_access_token}
+❯ dot repository atsushi130/dotfiles
+```
+
 ## Support commands
+
+**install dotfiles**  
 ```console
 ❯ dot install [--chain | -c] ${filename}
 ```
 
+**register github access token**  
 ```console
 ❯ dot token ${github_token}
 ```
 
+**register dotfiles repository**  
 ```console
 ❯ dot url ${github_url}
 ```
@@ -38,13 +60,6 @@ Please make dot.json confirm to the format, or generate by `dot init` command. A
 ```console
 ❯ dot init
 ```
-
-## Installation via Homebrew
-```console
-❯ brew tap atsushi130/tap
-❯ brew install dot
-```
-
 
 ## Using Library
 - [Commandy](https://github.com/atsushi130/Commandy)
