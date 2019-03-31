@@ -21,6 +21,20 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0D80BA9E22508C3B00AF7DC0 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BA9D22508C3B00AF7DC0 /* Dot.swift */; };
+		0D80BAA122508CB400AF7DC0 /* Install.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAA022508CB400AF7DC0 /* Install.swift */; };
+		0D80BAA322508F9B00AF7DC0 /* GithubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAA222508F9B00AF7DC0 /* GithubApi.swift */; };
+		0D80BAA52250900100AF7DC0 /* GithubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAA42250900100AF7DC0 /* GithubEndpoint.swift */; };
+		0D80BAA72250902F00AF7DC0 /* GithubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAA62250902F00AF7DC0 /* GithubApiService.swift */; };
+		0D80BAA9225092FD00AF7DC0 /* GithubFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAA8225092FD00AF7DC0 /* GithubFile.swift */; };
+		0D80BAAC225093FF00AF7DC0 /* JSONDecoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAAB225093FF00AF7DC0 /* JSONDecoder+.swift */; };
+		0D80BAAE2250955400AF7DC0 /* DotfileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAAD2250955400AF7DC0 /* DotfileConfiguration.swift */; };
+		0D80BAB02250957700AF7DC0 /* FileContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAAF2250957700AF7DC0 /* FileContentService.swift */; };
+		0D80BAB222509DF900AF7DC0 /* Dotfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAB122509DF900AF7DC0 /* Dotfile.swift */; };
+		0D80BAB62250A2C100AF7DC0 /* FileApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAB52250A2C100AF7DC0 /* FileApi.swift */; };
+		0D80BAB82250A2D200AF7DC0 /* FileApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAB72250A2D200AF7DC0 /* FileApiService.swift */; };
+		0D80BABA2250A2E100AF7DC0 /* FileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAB92250A2E100AF7DC0 /* FileEndpoint.swift */; };
+		0D80BABC2250A37200AF7DC0 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BABB2250A37200AF7DC0 /* FileService.swift */; };
 		OBJ_262 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_217 /* AFError.swift */; };
 		OBJ_263 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* Alamofire.swift */; };
 		OBJ_264 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* DispatchQueue+Alamofire.swift */; };
@@ -447,6 +461,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D80BA9D22508C3B00AF7DC0 /* Dot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
+		0D80BAA022508CB400AF7DC0 /* Install.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Install.swift; sourceTree = "<group>"; };
+		0D80BAA222508F9B00AF7DC0 /* GithubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApi.swift; sourceTree = "<group>"; };
+		0D80BAA42250900100AF7DC0 /* GithubEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubEndpoint.swift; sourceTree = "<group>"; };
+		0D80BAA62250902F00AF7DC0 /* GithubApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApiService.swift; sourceTree = "<group>"; };
+		0D80BAA8225092FD00AF7DC0 /* GithubFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFile.swift; sourceTree = "<group>"; };
+		0D80BAAB225093FF00AF7DC0 /* JSONDecoder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+.swift"; sourceTree = "<group>"; };
+		0D80BAAD2250955400AF7DC0 /* DotfileConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotfileConfiguration.swift; sourceTree = "<group>"; };
+		0D80BAAF2250957700AF7DC0 /* FileContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentService.swift; sourceTree = "<group>"; };
+		0D80BAB122509DF900AF7DC0 /* Dotfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dotfile.swift; sourceTree = "<group>"; };
+		0D80BAB52250A2C100AF7DC0 /* FileApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileApi.swift; sourceTree = "<group>"; };
+		0D80BAB72250A2D200AF7DC0 /* FileApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileApiService.swift; sourceTree = "<group>"; };
+		0D80BAB92250A2E100AF7DC0 /* FileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileEndpoint.swift; sourceTree = "<group>"; };
+		0D80BABB2250A37200AF7DC0 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commandy::Commandy::Product" /* Commandy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Commandy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Moya::Moya::Product" /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -771,6 +799,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D80BA9B22508C0300AF7DC0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0D80BAB42250A2AA00AF7DC0 /* FileApi */,
+				0D80BAB32250A29D00AF7DC0 /* GithubApi */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		0D80BA9C22508C0900AF7DC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D80BAA8225092FD00AF7DC0 /* GithubFile.swift */,
+				0D80BAAD2250955400AF7DC0 /* DotfileConfiguration.swift */,
+				0D80BAB122509DF900AF7DC0 /* Dotfile.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0D80BA9F22508CA800AF7DC0 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				0D80BAA022508CB400AF7DC0 /* Install.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		0D80BAAA225093F000AF7DC0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0D80BAAB225093FF00AF7DC0 /* JSONDecoder+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0D80BAB32250A29D00AF7DC0 /* GithubApi */ = {
+			isa = PBXGroup;
+			children = (
+				0D80BAA222508F9B00AF7DC0 /* GithubApi.swift */,
+				0D80BAA42250900100AF7DC0 /* GithubEndpoint.swift */,
+				0D80BAA62250902F00AF7DC0 /* GithubApiService.swift */,
+				0D80BAAF2250957700AF7DC0 /* FileContentService.swift */,
+			);
+			path = GithubApi;
+			sourceTree = "<group>";
+		};
+		0D80BAB42250A2AA00AF7DC0 /* FileApi */ = {
+			isa = PBXGroup;
+			children = (
+				0D80BAB52250A2C100AF7DC0 /* FileApi.swift */,
+				0D80BAB72250A2D200AF7DC0 /* FileApiService.swift */,
+				0D80BAB92250A2E100AF7DC0 /* FileEndpoint.swift */,
+				0D80BABB2250A37200AF7DC0 /* FileService.swift */,
+			);
+			path = FileApi;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1228,7 +1313,12 @@
 		OBJ_8 /* dot */ = {
 			isa = PBXGroup;
 			children = (
+				0D80BAAA225093F000AF7DC0 /* Extensions */,
+				0D80BA9F22508CA800AF7DC0 /* Commands */,
+				0D80BA9C22508C0900AF7DC0 /* Model */,
+				0D80BA9B22508C0300AF7DC0 /* Data */,
 				OBJ_9 /* main.swift */,
+				0D80BA9D22508C3B00AF7DC0 /* Dot.swift */,
 			);
 			name = dot;
 			path = Sources/dot;
@@ -1886,7 +1976,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				0D80BAAC225093FF00AF7DC0 /* JSONDecoder+.swift in Sources */,
+				0D80BAA9225092FD00AF7DC0 /* GithubFile.swift in Sources */,
 				OBJ_567 /* main.swift in Sources */,
+				0D80BAA72250902F00AF7DC0 /* GithubApiService.swift in Sources */,
+				0D80BABA2250A2E100AF7DC0 /* FileEndpoint.swift in Sources */,
+				0D80BAB222509DF900AF7DC0 /* Dotfile.swift in Sources */,
+				0D80BAAE2250955400AF7DC0 /* DotfileConfiguration.swift in Sources */,
+				0D80BAB02250957700AF7DC0 /* FileContentService.swift in Sources */,
+				0D80BABC2250A37200AF7DC0 /* FileService.swift in Sources */,
+				0D80BAB82250A2D200AF7DC0 /* FileApiService.swift in Sources */,
+				0D80BA9E22508C3B00AF7DC0 /* Dot.swift in Sources */,
+				0D80BAA122508CB400AF7DC0 /* Install.swift in Sources */,
+				0D80BAA52250900100AF7DC0 /* GithubEndpoint.swift in Sources */,
+				0D80BAB62250A2C100AF7DC0 /* FileApi.swift in Sources */,
+				0D80BAA322508F9B00AF7DC0 /* GithubApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
