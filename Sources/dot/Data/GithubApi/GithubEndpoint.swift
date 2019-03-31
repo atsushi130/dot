@@ -21,8 +21,9 @@ extension GithubEndpoint {
     }
     
     var headers: [String : String]? {
+        guard let githubAccessToken = UserDefaults.standard.string(forKey: "GITHUB_ACCESS_TOKEN") else { return nil }
         return [
-            "Authorization": "token cd6b83382a3888c6504ddd21f6216d403a1c16b7"
+            "Authorization": "token \(githubAccessToken)"
         ]
     }
 }
