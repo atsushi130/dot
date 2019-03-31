@@ -13,3 +13,15 @@ struct DotfileConfiguration: Decodable {
     let output: String
     let chain: [String]?
 }
+
+extension DotfileConfiguration {
+    enum Error: Swift.Error {
+        case invalidDotfileConfiguration
+        var message: String {
+            switch self {
+            case .invalidDotfileConfiguration:
+                return "invald `dot.json`. please confirm to format."
+            }
+        }
+    }
+}
