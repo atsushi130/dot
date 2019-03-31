@@ -22,8 +22,9 @@ extension FileApi {
 extension FileApi.FileService {
     
     func createFile(filePath: String, content: String) -> Observable<Void> {
+        let escapedContent = content.replacingOccurrences(of: "\"", with: "\\\"")
         let script = Scripty.builder
-            | "echo '\(content)' > \(filePath)"
+            | "echo \"\(escapedContent)\" > \(filePath)"
         script.exec()
         return .just(())
     }
