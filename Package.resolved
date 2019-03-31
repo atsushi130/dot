@@ -1,0 +1,88 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "75bba56748359f297a83f620d45f72cf4ebee4e7",
+          "version": "4.8.2"
+        }
+      },
+      {
+        "package": "Commandy",
+        "repositoryURL": "https://github.com/atsushi130/Commandy",
+        "state": {
+          "branch": null,
+          "revision": "a632aeb17da9acfbd2153a8a43124d946ea0aa27",
+          "version": "1.1.3"
+        }
+      },
+      {
+        "package": "Moya",
+        "repositoryURL": "https://github.com/Moya/Moya.git",
+        "state": {
+          "branch": null,
+          "revision": "a3dbb26039f49f439096397407fef3fc037176d8",
+          "version": "12.0.1"
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "e9d769113660769a4d9dd3afb855562c0b7ae7b0",
+          "version": "7.3.4"
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "f2b5a06440ea87eba1a167cab37bf6496646c52e",
+          "version": "1.3.4"
+        }
+      },
+      {
+        "package": "ReactiveSwift",
+        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "4f6a12ae6762e825b0e19a4f7076eafa43847e6e",
+          "version": "4.0.0"
+        }
+      },
+      {
+        "package": "Result",
+        "repositoryURL": "https://github.com/antitypical/Result.git",
+        "state": {
+          "branch": null,
+          "revision": "2ca499ba456795616fbc471561ff1d963e6ae160",
+          "version": "4.1.0"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "fc6030ea9fe9b8af0351fe195b4095a9f2339757",
+          "version": "4.4.2"
+        }
+      },
+      {
+        "package": "Scripty",
+        "repositoryURL": "https://github.com/atsushi130/Scripty",
+        "state": {
+          "branch": null,
+          "revision": "4c22d0e3696d8e20c6791255baa886373645eb00",
+          "version": "1.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
