@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Dotfile {
+    let content: String
+    let outputPath: String
+}
