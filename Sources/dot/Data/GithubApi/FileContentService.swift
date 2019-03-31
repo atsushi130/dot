@@ -35,7 +35,7 @@ extension GithubApi.FileContentService.Endpoint {
     var path: String {
         switch self {
         case .fetchGithubFile(let path):
-            let repository = "atsushi130/dotfiles"
+            guard let repository = UserDefaults.standard.string(forKey: "GITHUB_DOTFILES_REPOSITORY") else { return "" }
             if path.hasPrefix("/") {
                 return "/repos/\(repository)/contents\(path)"
             } else {
