@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0D1178D82251073900CB2C82 /* GithubTokenRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1178D72251073900CB2C82 /* GithubTokenRegister.swift */; };
+		0D1178DA2251082800CB2C82 /* DotfilesRepositoryRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1178D92251082800CB2C82 /* DotfilesRepositoryRegister.swift */; };
 		0D80BA9E22508C3B00AF7DC0 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BA9D22508C3B00AF7DC0 /* Dot.swift */; };
 		0D80BAA122508CB400AF7DC0 /* Install.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAA022508CB400AF7DC0 /* Install.swift */; };
 		0D80BAA322508F9B00AF7DC0 /* GithubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAA222508F9B00AF7DC0 /* GithubApi.swift */; };
@@ -460,6 +462,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D1178D72251073900CB2C82 /* GithubTokenRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTokenRegister.swift; sourceTree = "<group>"; };
+		0D1178D92251082800CB2C82 /* DotfilesRepositoryRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotfilesRepositoryRegister.swift; sourceTree = "<group>"; };
 		0D80BA9D22508C3B00AF7DC0 /* Dot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
 		0D80BAA022508CB400AF7DC0 /* Install.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Install.swift; sourceTree = "<group>"; };
 		0D80BAA222508F9B00AF7DC0 /* GithubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApi.swift; sourceTree = "<group>"; };
@@ -820,6 +824,8 @@
 			isa = PBXGroup;
 			children = (
 				0D80BAA022508CB400AF7DC0 /* Install.swift */,
+				0D1178D72251073900CB2C82 /* GithubTokenRegister.swift */,
+				0D1178D92251082800CB2C82 /* DotfilesRepositoryRegister.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -1978,6 +1984,8 @@
 				0D80BAA72250902F00AF7DC0 /* GithubApiService.swift in Sources */,
 				0D80BAB222509DF900AF7DC0 /* Dotfile.swift in Sources */,
 				0D80BAAE2250955400AF7DC0 /* DotfileConfiguration.swift in Sources */,
+				0D1178D82251073900CB2C82 /* GithubTokenRegister.swift in Sources */,
+				0D1178DA2251082800CB2C82 /* DotfilesRepositoryRegister.swift in Sources */,
 				0D80BAB02250957700AF7DC0 /* FileContentService.swift in Sources */,
 				0D80BABC2250A37200AF7DC0 /* FileService.swift in Sources */,
 				0D80BAB82250A2D200AF7DC0 /* FileApiService.swift in Sources */,
