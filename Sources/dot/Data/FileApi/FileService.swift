@@ -6,3 +6,32 @@
 //
 
 import Foundation
+import RxSwift
+import Scripty
+
+extension FileApi {
+    
+    final class FileService: FileApiService {
+        fileprivate static let shared = FileService()
+        private init() {}
+    }
+    
+    static let fileService = FileService.shared
+}
+
+extension FileApi.FileService {
+    
+    func createFile(filePath: String, content: String) -> Observable<Void> {
+        let script = Scripty.builder
+            | "echo '\(content)' > \(filePath)"
+        script.exec()
+        return .just(())
+    }
+    
+    func backupFile(filePath: String) -> Observable<Void> {
+        let script = Scripty.builder
+            | "cp -rf \(filePath) \(filePath).backup"
+        script.exec()
+        return .just(())
+    }
+}
