@@ -33,7 +33,6 @@
 		0D80BAB222509DF900AF7DC0 /* Dotfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAB122509DF900AF7DC0 /* Dotfile.swift */; };
 		0D80BAB62250A2C100AF7DC0 /* FileApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAB52250A2C100AF7DC0 /* FileApi.swift */; };
 		0D80BAB82250A2D200AF7DC0 /* FileApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAB72250A2D200AF7DC0 /* FileApiService.swift */; };
-		0D80BABA2250A2E100AF7DC0 /* FileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAB92250A2E100AF7DC0 /* FileEndpoint.swift */; };
 		0D80BABC2250A37200AF7DC0 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BABB2250A37200AF7DC0 /* FileService.swift */; };
 		OBJ_262 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_217 /* AFError.swift */; };
 		OBJ_263 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* Alamofire.swift */; };
@@ -473,7 +472,6 @@
 		0D80BAB122509DF900AF7DC0 /* Dotfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dotfile.swift; sourceTree = "<group>"; };
 		0D80BAB52250A2C100AF7DC0 /* FileApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileApi.swift; sourceTree = "<group>"; };
 		0D80BAB72250A2D200AF7DC0 /* FileApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileApiService.swift; sourceTree = "<group>"; };
-		0D80BAB92250A2E100AF7DC0 /* FileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileEndpoint.swift; sourceTree = "<group>"; };
 		0D80BABB2250A37200AF7DC0 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commandy::Commandy::Product" /* Commandy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Commandy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -850,7 +848,6 @@
 			children = (
 				0D80BAB52250A2C100AF7DC0 /* FileApi.swift */,
 				0D80BAB72250A2D200AF7DC0 /* FileApiService.swift */,
-				0D80BAB92250A2E100AF7DC0 /* FileEndpoint.swift */,
 				0D80BABB2250A37200AF7DC0 /* FileService.swift */,
 			);
 			path = FileApi;
@@ -1290,7 +1287,7 @@
 			path = ".build/checkouts/RxSwift.git--2213168492160229225/Sources/RxSwift";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1299,7 +1296,6 @@
 				OBJ_14 /* Dependencies */,
 				OBJ_246 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -1637,7 +1633,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_246 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1980,7 +1976,6 @@
 				0D80BAA9225092FD00AF7DC0 /* GithubFile.swift in Sources */,
 				OBJ_567 /* main.swift in Sources */,
 				0D80BAA72250902F00AF7DC0 /* GithubApiService.swift in Sources */,
-				0D80BABA2250A2E100AF7DC0 /* FileEndpoint.swift in Sources */,
 				0D80BAB222509DF900AF7DC0 /* Dotfile.swift in Sources */,
 				0D80BAAE2250955400AF7DC0 /* DotfileConfiguration.swift in Sources */,
 				0D80BAB02250957700AF7DC0 /* FileContentService.swift in Sources */,
