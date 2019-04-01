@@ -11,6 +11,7 @@ struct DotfileConfiguration: Decodable {
     let name: String
     let input: String
     let output: String
+    let type: GithubResource.ResourceType
     let chain: [String]?
 }
 
