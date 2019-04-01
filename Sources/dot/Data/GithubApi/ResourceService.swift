@@ -80,8 +80,8 @@ extension GithubApi.ResourceService {
     /// Returns: Dotfiles
     func syncDotfileConfigurations() -> Observable<[DotfileConfiguration]> {
         return self.fetchGithubResource(path: "dot.json")
-            .map { githubFile -> [DotfileConfiguration] in
-                guard let data = githubFile.decodedContent.data(using: .utf8),
+            .map { githubResource -> [DotfileConfiguration] in
+                guard let data = githubResource.decodedContent.data(using: .utf8),
                       let dotfileConfigurations = try? JSONDecoder.snakeCaseDecoder.decode([DotfileConfiguration].self, from: data) else {
                     throw DotfileConfiguration.Error.invalidDotfileConfiguration
                 }
@@ -95,8 +95,8 @@ extension GithubApi.ResourceService {
     // Returns: fetched Dotfile
     func fetchDotfile(dotfileConfiguration: DotfileConfiguration) -> Observable<Dotfile> {
         return self.fetchGithubResource(path: dotfileConfiguration.input)
-            .map { githubFile -> Dotfile in
-                Dotfile(content: githubFile.decodedContent, outputPath: dotfileConfiguration.output)
+            .map { githubResource -> Dotfile in
+                Dotfile(content: githubResource.decodedContent, outputPath: dotfileConfiguration.output)
             }
     }
 }
