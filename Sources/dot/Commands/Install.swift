@@ -22,20 +22,20 @@ enum Install: String, Command {
     private static let disposeBag = DisposeBag()
     
     static func run() throws {
-        let filename = Arguments.cached.nonOptionArguments.first
+        let resourceName = Arguments.cached.nonOptionArguments.first
         let matchOptions = Install.matchOptions
         switch matchOptions {
         case _ where matchOptions[.chain]:
-            guard let filename = filename else { throw Install.Error.notFoundFilename }
-            self.install(filename: filename, chain: true)
+            guard let resourceName = resourceName else { throw Install.Error.notFoundFilename }
+            self.install(resourceName: resourceName, chain: true)
                 .subscribe(
                     onError: { _ in exit(EXIT_FAILURE) },
                     onCompleted: { exit(EXIT_SUCCESS) }
                 )
                 .disposed(by: self.disposeBag)
         default:
-            guard let filename = filename else { throw Install.Error.notFoundFilename }
-            self.install(filename: filename)
+            guard let resourceName = resourceName else { throw Install.Error.notFoundFilename }
+            self.install(resourceName: resourceName)
                 .subscribe(
                     onError: { _ in exit(EXIT_FAILURE) },
                     onCompleted: { exit(EXIT_SUCCESS) }
@@ -44,16 +44,16 @@ enum Install: String, Command {
           }
     }
     
-    private static func install(filename: String, chain: Bool = false) -> Observable<Dotfile> {
+    private static func install(resourceName: String, chain: Bool = false) -> Observable<Dotfile> {
         
-        let fetchedDotfileConfigurations = GithubApi.fileContentService.syncDotfileConfigurations()
+        let fetchedDotfileConfigurations = GithubApi.resourceService.syncDotfileConfigurations()
             .flatMap { dotfileConfigurations in
                 Observable.from(dotfileConfigurations)
             }
             
         let matchedDotfileConfiguration = fetchedDotfileConfigurations
             .filter { dotConfiguration in
-                dotConfiguration.name == filename
+                dotConfiguration.name == resourceName
             }
             
         let chainDotfileConfigurations = fetchedDotfileConfigurations
@@ -71,7 +71,7 @@ enum Install: String, Command {
                 matchedDotfileConfiguration,
                 chainDotfileConfigurations
             )
-            .flatMap(GithubApi.fileContentService.fetchDotfile(dotfileConfiguration:))
+            .flatMap(GithubApi.resourceService.fetchDotfile(dotfileConfiguration:))
         
         return matchedDotfiles
             .flatMap { dotfile in
