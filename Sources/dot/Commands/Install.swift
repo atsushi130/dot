@@ -71,8 +71,15 @@ enum Install: String, Command {
                 matchedDotfileConfiguration,
                 chainDotfileConfigurations
             )
-            .flatMap(GithubApi.resourceService.fetchDotfile(dotfileConfiguration:))
-        
+            .flatMap { dotfileConfiguration -> Observable<Dotfile> in
+                switch dotfileConfiguration.type {
+                case .file:
+                    return GithubApi.resourceService.fetchDotfile(dotfileConfiguration: dotfileConfiguration)
+                case .dir:
+                    return .empty()
+                }
+            }
+
         return matchedDotfiles
             .flatMap { dotfile in
                 Observable.concat(
