@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		0D1178D82251073900CB2C82 /* GithubTokenRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1178D72251073900CB2C82 /* GithubTokenRegister.swift */; };
 		0D1178DA2251082800CB2C82 /* DotfilesRepositoryRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1178D92251082800CB2C82 /* DotfilesRepositoryRegister.swift */; };
+		0D1178DC2253B1E100CB2C82 /* GithubDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1178DB2253B1E100CB2C82 /* GithubDirectory.swift */; };
 		0D80BA9E22508C3B00AF7DC0 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BA9D22508C3B00AF7DC0 /* Dot.swift */; };
 		0D80BAA122508CB400AF7DC0 /* Install.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAA022508CB400AF7DC0 /* Install.swift */; };
 		0D80BAA322508F9B00AF7DC0 /* GithubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80BAA222508F9B00AF7DC0 /* GithubApi.swift */; };
@@ -464,6 +465,7 @@
 /* Begin PBXFileReference section */
 		0D1178D72251073900CB2C82 /* GithubTokenRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTokenRegister.swift; sourceTree = "<group>"; };
 		0D1178D92251082800CB2C82 /* DotfilesRepositoryRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotfilesRepositoryRegister.swift; sourceTree = "<group>"; };
+		0D1178DB2253B1E100CB2C82 /* GithubDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubDirectory.swift; sourceTree = "<group>"; };
 		0D80BA9D22508C3B00AF7DC0 /* Dot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
 		0D80BAA022508CB400AF7DC0 /* Install.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Install.swift; sourceTree = "<group>"; };
 		0D80BAA222508F9B00AF7DC0 /* GithubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubApi.swift; sourceTree = "<group>"; };
@@ -816,6 +818,7 @@
 				0D80BAA8225092FD00AF7DC0 /* GithubResource.swift */,
 				0D80BAAD2250955400AF7DC0 /* DotfileConfiguration.swift */,
 				0D80BAB122509DF900AF7DC0 /* Dotfile.swift */,
+				0D1178DB2253B1E100CB2C82 /* GithubDirectory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1993,6 +1996,7 @@
 				0D80BAA122508CB400AF7DC0 /* Install.swift in Sources */,
 				0D80BAA52250900100AF7DC0 /* GithubEndpoint.swift in Sources */,
 				0D80BAB62250A2C100AF7DC0 /* FileApi.swift in Sources */,
+				0D1178DC2253B1E100CB2C82 /* GithubDirectory.swift in Sources */,
 				0D80BAA322508F9B00AF7DC0 /* GithubApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
