@@ -16,7 +16,12 @@ enum Dot: String, Cli {
     
     func run() throws {
         switch self {
-        case .install:    try Install.run()
+        case .install:
+        Install.fetchDirectory(directoryPath: "vim/dein")
+            .subscribe(onNext: { resource in
+                print(resource)
+                exit(EXIT_SUCCESS)
+            })
         case .token:      try GithubTokenRegister.run()
         case .repository: try DotfilesRepositoryRegister.run()
         }
