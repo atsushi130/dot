@@ -91,6 +91,36 @@ enum Install: String, Command {
                 matchedDotfiles
             }
     }
+    
+    static func fetchDirectory(directoryPath: String = "vim/dein") -> Observable<_GithubResource> {
+        return GithubApi.resourceService.fetchGithubResource(path: directoryPath)
+            .flatMap { (resources: [GithubResource]) -> Observable<GithubResource> in
+                return .from(resources)
+            }
+            .flatMap { resource -> Observable<_GithubResource> in
+                switch resource.type {
+                case .file:
+                    return GithubApi.resourceService.fetchGithubResource(path: resource.path)
+                        .map { file -> _GithubResource in
+                            .file(resource: file)
+                        }
+                case .dir:
+                    return self.fetchDirectory(directoryPath: resource.path)
+                        .reduce([_GithubResource]()) { resources, resource in
+                            resources + [resource]
+                        }
+                        .map { resources -> _GithubResource in
+                            .directory(resources: resources)
+                        }
+                }
+            }
+            .reduce([_GithubResource]()) { resources, resource in
+                resources + [resource]
+            }
+            .map { resources -> _GithubResource in
+                .directory(resources: resources)
+            }
+    }
 }
 
 extension Install {
