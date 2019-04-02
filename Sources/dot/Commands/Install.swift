@@ -106,12 +106,6 @@ enum Install: String, Command {
                         }
                 case .dir:
                     return self.fetchDirectory(directoryPath: resource.path)
-                        .reduce([_GithubResource]()) { resources, resource in
-                            resources + [resource]
-                        }
-                        .map { resources -> _GithubResource in
-                            .directory(resources: resources)
-                        }
                 }
             }
             .reduce([_GithubResource]()) { resources, resource in
