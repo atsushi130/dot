@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum _GithubResource {
-    case file(resource: GithubResource)
-    indirect case directory(resources: [_GithubResource])
+indirect enum _GithubResource {
+    case file(resource: GithubResource, outputPath: String)
+    case directory(resources: [_GithubResource], outputPath: String)
 }
