@@ -79,7 +79,8 @@ enum Install: String, Command {
                             .file(resource: resource, outputPath: dotfileConfiguration.output)
                         }
                 case .dir:
-                    return self.fetchDirectory(input: dotfileConfiguration.input, resourcePath: dotfileConfiguration.input, output: dotfileConfiguration.output)
+                    let resourcePath = dotfileConfiguration.input
+                    return self.fetchDirectory(input: resourcePath, resourcePath: resourcePath, output: dotfileConfiguration.output)
                 }
             }
 
@@ -94,6 +95,7 @@ enum Install: String, Command {
         case let .file(resource, outputPath):
             return Observable
                 .concat(
+                    FileApi.fileService.makeParentDirectory(for: outputPath),
                     FileApi.fileService.backupFile(filePath: outputPath),
                     FileApi.fileService.createFile(filePath: outputPath, content: resource.decodedContent)
                 )
@@ -119,7 +121,8 @@ enum Install: String, Command {
                 case .file:
                     return GithubApi.resourceService.fetchGithubResource(path: resource.path)
                         .map { (file: GithubResource) -> _GithubResource in
-                            let path = file.path.replacingOccurrences(of: "^" + directoryPath, with: "", options: .regularExpression)
+                            let filePath = directoryPath.hasPrefix("/") ? "/" + file.path : file.path
+                            let path = filePath.replacingOccurrences(of: "^" + directoryPath, with: "", options: .regularExpression)
                             return .file(resource: file, outputPath: entryPath + path)
                         }
                 case .dir:
