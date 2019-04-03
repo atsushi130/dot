@@ -4,8 +4,8 @@
 class Dot < Formula
   desc "dot is dotfiles manage cli."
   homepage "https://github.com/atsushi130/dot"
-  url "https://github.com/atsushi130/dot/archive/v1.0.0.tar.gz"
-  sha256 "ce11ec3590c4a33118a41d2f07c38c85311528c20150743030b3a1f9a7c8acf4"
+  url "https://github.com/atsushi130/dot/archive/v1.1.0.tar.gz"
+  sha256 "0d676362f994a7fd31735fef0d36d5b9987034bfefdbe5008bb1744f2353b3ae"
   # depends_on "cmake" => :build
 
   def install
