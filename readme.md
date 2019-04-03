@@ -20,6 +20,7 @@ Please make dot.json confirm to the format, or generate by `dot init` command. A
 [
   {
     "name": "filename",
+    "type": "file or dir",
     "input": "input_file_path_from_github",
     "output": "output_file_path_to_local",
     "chain": [] // chain install filenames (optional)
@@ -53,7 +54,14 @@ Next, register generated Github access token and repository to dot.
 
 **register dotfiles repository**  
 ```console
-❯ dot url ${github_url}
+❯ dot repository ${owner/repository}
+```
+
+**example**
+```console
+❯ dot token f8a86be02ff77c0fa42d0fa16855d1e09a1affb6
+❯ dot repository atsushi130/dotfiles
+❯ dot install -c vimrc
 ```
 
 **coming soon**
