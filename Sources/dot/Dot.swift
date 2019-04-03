@@ -17,7 +17,7 @@ enum Dot: String, Cli {
     func run() throws {
         switch self {
         case .install:
-        Install.fetchDirectory(directoryPath: "vim/dein")
+        Install.fetchDirectory(input: "zsh", resourcePath: "zsh", output: "~/.zsh")
             .subscribe(onNext: { resource in
                 print(resource)
                 exit(EXIT_SUCCESS)
