@@ -44,7 +44,7 @@ enum Install: String, Command {
           }
     }
     
-    private static func install(resourceName: String, chain: Bool = false) -> Observable<Dotfile> {
+    private static func install(resourceName: String, chain: Bool = false) -> Observable<Void> {
         
         let fetchedDotfileConfigurations = GithubApi.resourceService.syncDotfileConfigurations()
             .flatMap { dotfileConfigurations in
@@ -66,29 +66,75 @@ enum Install: String, Command {
             }
             .map { $0.0 }
             
-        let matchedDotfiles = Observable
+        let matchedResources = Observable
             .concat(
                 matchedDotfileConfiguration,
                 chainDotfileConfigurations
             )
-            .flatMap { dotfileConfiguration -> Observable<Dotfile> in
+            .flatMap { dotfileConfiguration -> Observable<_GithubResource> in
                 switch dotfileConfiguration.type {
                 case .file:
-                    return GithubApi.resourceService.fetchDotfile(dotfileConfiguration: dotfileConfiguration)
+                    return GithubApi.resourceService.fetchGithubResource(path: dotfileConfiguration.input)
+                        .map { (resource: GithubResource) -> _GithubResource in
+                            .file(resource: resource, outputPath: dotfileConfiguration.output)
+                        }
                 case .dir:
-                    return .empty()
+                    let resourcePath = dotfileConfiguration.input
+                    return self.fetchDirectory(input: resourcePath, resourcePath: resourcePath, output: dotfileConfiguration.output)
                 }
             }
 
-        return matchedDotfiles
-            .flatMap { dotfile in
-                Observable.concat(
-                    FileApi.fileService.backupFile(filePath: dotfile.outputPath),
-                    FileApi.fileService.createFile(filePath: dotfile.outputPath, content: dotfile.content)
-                )
+        return matchedResources
+            .flatMap { resource -> Observable<Void> in
+                self.outputGithubResource(resource: resource)
             }
-            .flatMap { _ -> Observable<Dotfile> in
-                matchedDotfiles
+    }
+    
+    static func outputGithubResource(resource: _GithubResource) -> Observable<Void> {
+        switch resource {
+        case let .file(resource, outputPath):
+            return Observable
+                .concat(
+                    FileApi.fileService.makeParentDirectory(for: outputPath),
+                    FileApi.fileService.backupFile(filePath: outputPath),
+                    FileApi.fileService.createFile(filePath: outputPath, content: resource.decodedContent)
+                )
+        case let .directory(resources, _):
+            let outputResources = resources
+                .map { resource -> Observable<Void> in
+                    self.outputGithubResource(resource: resource)
+                }
+            return Observable
+                .from(outputResources)
+                .flatMap { $0 }
+        }
+    }
+        
+    
+    static func fetchDirectory(input directoryPath: String, resourcePath: String, output entryPath: String) -> Observable<_GithubResource> {
+        return GithubApi.resourceService.fetchGithubResource(path: resourcePath)
+            .flatMap { (resources: [GithubResource]) -> Observable<GithubResource> in
+                return .from(resources)
+            }
+            .flatMap { resource -> Observable<_GithubResource> in
+                switch resource.type {
+                case .file:
+                    return GithubApi.resourceService.fetchGithubResource(path: resource.path)
+                        .map { (file: GithubResource) -> _GithubResource in
+                            let filePath = directoryPath.hasPrefix("/") ? "/" + file.path : file.path
+                            let path = filePath.replacingOccurrences(of: "^" + directoryPath, with: "", options: .regularExpression)
+                            return .file(resource: file, outputPath: entryPath + path)
+                        }
+                case .dir:
+                    return self.fetchDirectory(input: directoryPath, resourcePath: resource.path, output: entryPath)
+                }
+            }
+            .reduce([_GithubResource]()) { resources, resource in
+                resources + [resource]
+            }
+            .map { resources -> _GithubResource in
+                let path = resourcePath.replacingOccurrences(of: "^" + directoryPath, with: "", options: .regularExpression)
+                return .directory(resources: resources, outputPath: entryPath + path)
             }
     }
 }

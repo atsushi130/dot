@@ -62,13 +62,13 @@ extension GithubApi.ResourceService.Endpoint {
 // MARK: - Interface
 extension GithubApi.ResourceService {
     
-    func fetchGithubResource(path: String) -> Observable<GithubResource> {
+    func fetchGithubResource<T>(path: String) -> Observable<T> where T: Decodable {
         return self.provider.rx.request(.fetchGithubResource(path: path))
             .asObservable()
-            .flatMap { response -> Observable<GithubResource> in
+            .flatMap { response -> Observable<T> in
                 switch response.statusCode {
                 case 200...226:
-                    let dotConfiguration = try! response.map(GithubResource.self, using: .snakeCaseDecoder)
+                    let dotConfiguration = try! response.map(T.self, using: .snakeCaseDecoder)
                     return .just(dotConfiguration)
                 default:
                     return .empty()
@@ -80,7 +80,7 @@ extension GithubApi.ResourceService {
     /// Returns: Dotfiles
     func syncDotfileConfigurations() -> Observable<[DotfileConfiguration]> {
         return self.fetchGithubResource(path: "dot.json")
-            .map { githubResource -> [DotfileConfiguration] in
+            .map { (githubResource: GithubResource) -> [DotfileConfiguration] in
                 guard let data = githubResource.decodedContent.data(using: .utf8),
                       let dotfileConfigurations = try? JSONDecoder.snakeCaseDecoder.decode([DotfileConfiguration].self, from: data) else {
                     throw DotfileConfiguration.Error.invalidDotfileConfiguration
@@ -95,7 +95,7 @@ extension GithubApi.ResourceService {
     // Returns: fetched Dotfile
     func fetchDotfile(dotfileConfiguration: DotfileConfiguration) -> Observable<Dotfile> {
         return self.fetchGithubResource(path: dotfileConfiguration.input)
-            .map { githubResource -> Dotfile in
+            .map { (githubResource: GithubResource) -> Dotfile in
                 Dotfile(content: githubResource.decodedContent, outputPath: dotfileConfiguration.output)
             }
     }

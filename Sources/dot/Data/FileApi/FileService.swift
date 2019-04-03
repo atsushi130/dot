@@ -21,6 +21,14 @@ extension FileApi {
 
 extension FileApi.FileService {
     
+    func makeParentDirectory(for filePath: String) -> Observable<Void> {
+        let script = Scripty.builder
+            | "dirname \(filePath)"
+            | "xargs -Idirectory mkdir -p directory"
+        script.exec()
+        return .just(())
+    }
+    
     func createFile(filePath: String, content: String) -> Observable<Void> {
         let escapedContent = content.replacingOccurrences(of: "\"", with: "\\\"")
         let script = Scripty.builder
