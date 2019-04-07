@@ -77,7 +77,6 @@ enum Install: String, Command {
     }
     
     private static func allInstall() -> Observable<Void> {
-        Spinner.shared.spin(with: "Installing")
         return GithubApi.resourceService.syncDotfileConfigurations()
             .flatMap { dotfileConfigurations in
                 Observable.from(dotfileConfigurations)
