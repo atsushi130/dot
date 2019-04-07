@@ -257,7 +257,7 @@
 		OBJ_600 /* JSONDecoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* JSONDecoder+.swift */; };
 		OBJ_601 /* Dotfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Dotfile.swift */; };
 		OBJ_602 /* DotfileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* DotfileConfiguration.swift */; };
-		OBJ_603 /* GithubDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* GithubDirectory.swift */; };
+		OBJ_603 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Resource.swift */; };
 		OBJ_604 /* GithubResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* GithubResource.swift */; };
 		OBJ_605 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* main.swift */; };
 		OBJ_607 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Moya::RxMoya::Product" /* RxMoya.framework */; };
@@ -650,7 +650,7 @@
 		OBJ_267 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/atsushi/workspace/dot/.build/checkouts/Commandy-806394725192525152/Package.swift"; sourceTree = "<group>"; };
 		OBJ_27 /* Dotfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dotfile.swift; sourceTree = "<group>"; };
 		OBJ_28 /* DotfileConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotfileConfiguration.swift; sourceTree = "<group>"; };
-		OBJ_29 /* GithubDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubDirectory.swift; sourceTree = "<group>"; };
+		OBJ_29 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		OBJ_30 /* GithubResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubResource.swift; sourceTree = "<group>"; };
 		OBJ_31 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		OBJ_34 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
@@ -938,7 +938,7 @@
 			children = (
 				OBJ_27 /* Dotfile.swift */,
 				OBJ_28 /* DotfileConfiguration.swift */,
-				OBJ_29 /* GithubDirectory.swift */,
+				OBJ_29 /* Resource.swift */,
 				OBJ_30 /* GithubResource.swift */,
 			);
 			path = Model;
@@ -2026,7 +2026,7 @@
 				OBJ_600 /* JSONDecoder+.swift in Sources */,
 				OBJ_601 /* Dotfile.swift in Sources */,
 				OBJ_602 /* DotfileConfiguration.swift in Sources */,
-				OBJ_603 /* GithubDirectory.swift in Sources */,
+				OBJ_603 /* Resource.swift in Sources */,
 				OBJ_604 /* GithubResource.swift in Sources */,
 				OBJ_605 /* main.swift in Sources */,
 				0D11794F225A097800CB2C82 /* String+Scripty.swift in Sources */,
