@@ -16,6 +16,7 @@ extension GithubApi {
     public final class ResourceService: GithubApiService {
         
         static let shared = ResourceService()
+        fileprivate var cachedDotilfeConfigurations: [DotfileConfiguration]? = nil
         private init() {}
         
         let provider = MoyaProvider<Endpoint>()
@@ -68,8 +69,14 @@ extension GithubApi.ResourceService {
             .flatMap { response -> Observable<T> in
                 switch response.statusCode {
                 case 200...226:
-                    let dotConfiguration = try! response.map(T.self, using: .snakeCaseDecoder)
+                    guard let dotConfiguration = try? response.map(T.self, using: .snakeCaseDecoder) else {
+                        throw GithubApi.ResourceService.Error.resourceNotFound(path: path)
+                    }
                     return .just(dotConfiguration)
+                case 401:
+                    throw GithubApi.ResourceService.Error.invalidGithubAccessToken
+                case 404:
+                    throw GithubApi.ResourceService.Error.resourceNotFound(path: path)
                 default:
                     return .empty()
                 }
@@ -77,8 +84,15 @@ extension GithubApi.ResourceService {
     }
     
     /// sync dot.json
+    // Parameters:
+    //      - cache: use cache
     /// Returns: Dotfiles
-    func syncDotfileConfigurations() -> Observable<[DotfileConfiguration]> {
+    func syncDotfileConfigurations(cache: Bool = true) -> Observable<[DotfileConfiguration]> {
+        
+        if cache, let cached = self.cachedDotilfeConfigurations {
+            return Observable.just(cached)
+        }
+        
         return self.fetchGithubResource(path: "dot.json")
             .map { (githubResource: GithubResource) -> [DotfileConfiguration] in
                 guard let data = githubResource.decodedContent.data(using: .utf8),
@@ -87,6 +101,9 @@ extension GithubApi.ResourceService {
                 }
                 return dotfileConfigurations
             }
+            .do(onNext: { [weak self] dotfileConfigurations in
+                self?.cachedDotilfeConfigurations = dotfileConfigurations
+            })
     }
     
     // fetch dotfile
@@ -98,5 +115,21 @@ extension GithubApi.ResourceService {
             .map { (githubResource: GithubResource) -> Dotfile in
                 Dotfile(content: githubResource.decodedContent, outputPath: dotfileConfiguration.output)
             }
+    }
+}
+
+extension GithubApi.ResourceService {
+    enum Error: Swift.Error {
+        case invalidGithubAccessToken
+        case resourceNotFound(path: String)
+        
+        var message: String {
+            switch self {
+            case .invalidGithubAccessToken:
+                return "Invalid Github access token."
+            case .resourceNotFound(let path):
+                return "\(path) not found..."
+            }
+        }
     }
 }
