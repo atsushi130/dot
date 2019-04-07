@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GithubResource: Decodable {
+struct GithubResource: Decodable, Resourceable {
     let name: String
     let content: String?
     let type: ResourceType
@@ -18,10 +18,5 @@ struct GithubResource: Decodable {
         guard let data = Data(base64Encoded: removedEscapedReturn),
               let decoded = String(data: data, encoding: .utf8) else { return "" }
         return decoded
-    }
-    
-    enum ResourceType: String, Decodable {
-        case file
-        case dir
     }
 }
