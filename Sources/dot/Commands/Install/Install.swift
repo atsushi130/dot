@@ -12,21 +12,83 @@ import Commandy
 enum Install: String, Command {
     
     case chain
+    case all
 
     var shortOption: String? {
         switch self {
         case .chain: return "c"
+        case .all:   return "a"
         }
     }
     
     private static let disposeBag = DisposeBag()
-    
+
     static func run() throws {
         
-        Observable.just(Arguments.cached.nonOptionArguments.first)
+        Spinner.shared.spin(with: "Installing ...")
+        
+        Observable.just(Install.matchOptions)
             .do(onNext: { _ in
                 try self.validate()
             })
+            .flatMap { matchOptions -> Observable<Void> in
+                switch matchOptions {
+                case _ where matchOptions[.all]:
+                    return self.allInstall()
+                default:
+                    return self.singleInstall()
+                }
+            }
+            .catchError { error in
+                if let resourceError = error as? GithubApi.ResourceService.Error {
+                    let installError = Install.Error.referenceResourceError(resourceError: resourceError)
+                    return .error(installError)
+                } else {
+                    return .error(error)
+                }
+            }
+            .subscribe(
+                onError: { error in
+                    Spinner.shared.stop()
+                    "Install failure...!".colorize(color: .red).echo(overwrite: true, newline: true)
+                    if let installError = error as? Install.Error {
+                        installError.message.colorize(color: .white).echo()
+                    } else {
+                        print(error)
+                    }
+                    exit(EXIT_FAILURE)
+                },
+                onCompleted: {
+                    Spinner.shared.stop()
+                    "Install done !!".colorize(color: .green).echo(overwrite: true, newline: false)
+                    exit(EXIT_SUCCESS)
+                }
+            )
+            .disposed(by: self.disposeBag)
+    }
+    
+    private static func validate() throws {
+        guard let _ = UserDefaults.standard.string(forKey: "GITHUB_ACCESS_TOKEN") else {
+            throw Install.Error.githubAccessTokenNotFound
+        }
+        guard let _ = UserDefaults.standard.string(forKey: "GITHUB_DOTFILES_REPOSITORY") else {
+            throw Install.Error.githubDotfilesRepositoryNotFound
+        }
+    }
+    
+    private static func allInstall() -> Observable<Void> {
+        Spinner.shared.spin(with: "Installing")
+        return GithubApi.resourceService.syncDotfileConfigurations()
+            .flatMap { dotfileConfigurations in
+                Observable.from(dotfileConfigurations)
+            }
+            .flatMap { dotfileConfiguration -> Observable<Void> in
+                self.install(resourceName: dotfileConfiguration.name)
+            }
+    }
+    
+    private static func singleInstall() -> Observable<Void> {
+        return Observable.just(Arguments.cached.nonOptionArguments.first)
             .map { firstArgument -> String in
                 guard let resourceName = firstArgument else { throw Install.Error.filenameNotFound }
                 return resourceName
@@ -42,33 +104,6 @@ enum Install: String, Command {
                         }
                     }
             }
-            .subscribe(
-                onError: { error in
-                    if let installError = error as? Install.Error {
-                        print(installError.message)
-                    } else {
-                        print(error)
-                    }
-                    exit(EXIT_FAILURE)
-                },
-                onCompleted: {
-                    exit(EXIT_SUCCESS)
-                }
-            )
-            .disposed(by: self.disposeBag)
-    }
-    
-    private static func onError(error: Error) {
-        exit(EXIT_FAILURE)
-    }
-    
-    private static func validate() throws {
-        guard let _ = UserDefaults.standard.string(forKey: "GITHUB_ACCESS_TOKEN") else {
-            throw Install.Error.githubAccessTokenNotFound
-        }
-        guard let _ = UserDefaults.standard.string(forKey: "GITHUB_DOTFILES_REPOSITORY") else {
-            throw Install.Error.githubDotfilesRepositoryNotFound
-        }
     }
     
     private static func install(resourceName: String, chain: Bool = false) -> Observable<Void> {
@@ -174,46 +209,5 @@ enum Install: String, Command {
                 let path = resourcePath.replacingOccurrences(of: "^" + directoryPath, with: "", options: .regularExpression)
                 return .directory(resources: resources, outputPath: entryPath + path)
             }
-    }
-}
-
-extension Install {
-    enum Error: Swift.Error {
-        case filenameNotFound
-        case githubAccessTokenNotFound
-        case githubDotfilesRepositoryNotFound
-        case undefinedInDotJson(resourceName: String)
-        case undefinedChainInDotJson(resourceName: String)
-        case referenceResourceError(resourceError: GithubApi.ResourceService.Error)
-        
-        var message: String {
-            switch self {
-            case .filenameNotFound:
-                return """
-                Argument not found. Please input filename.
-                ❯ dot install filename
-                """
-            case .githubAccessTokenNotFound:
-                return """
-                Github access token not found. Please register it.
-                ❯ dot token ******
-                """
-            case .githubDotfilesRepositoryNotFound:
-                return """
-                Github dotfiles repository not found. Please register it.
-                ❯ dot repository owner/repository
-                """
-            case .undefinedInDotJson(let resourceName):
-                return """
-                Undefined \(resourceName) in dot.json. Please define dotfile information according to dot.json format.
-                document: https://github.com/atsushi130/dot#configuration
-                example:  https://github.com/atsushi130/dotfiles/blob/master/dot.json
-                """
-            case .undefinedChainInDotJson(let resourceName):
-                return "Undefined chain in \(resourceName). No chain option is required."
-            case let .referenceResourceError(resourceError):
-                return resourceError.message
-            }
-        }
     }
 }
