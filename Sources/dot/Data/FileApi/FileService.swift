@@ -13,6 +13,17 @@ extension FileApi {
     
     final class FileService: FileApiService {
         fileprivate static let shared = FileService()
+        fileprivate typealias Replacing = (of: String, with: String)
+        fileprivate var replacings: [Replacing] {
+            return [
+                Replacing(of: "\\",  with: "\\\\"),
+                Replacing(of: "$",  with: "\\$"),
+                Replacing(of: "\"",  with: "\\\""),
+                Replacing(of: "`", with: "\\`")
+            ]
+            
+        }
+        
         private init() {}
     }
     
@@ -30,7 +41,10 @@ extension FileApi.FileService {
     }
     
     func createFile(filePath: String, content: String) -> Observable<Void> {
-        let escapedContent = content.replacingOccurrences(of: "\"", with: "\\\"")
+        let escapedContent = self.replacings
+            .reduce(content) { content, replacing in
+                content.replacingOccurrences(of: replacing.of, with: replacing.with)
+            }
         let script = Scripty.builder
             | "echo \"\(escapedContent)\" > \(filePath)"
         script.exec()
