@@ -71,7 +71,7 @@ Next, register generated Github access token and repository to dot.
 
 ## Using Library
 - [Commandy](https://github.com/atsushi130/Commandy)
-- [Swifty](https://github.com/atsushi130/Swifty)
+- [Scripty](https://github.com/atsushi130/Scripty)
 - [Moya](https://github.com/Moya/Moya)
 
 ## License
