@@ -69,6 +69,15 @@ Next, register generated Github access token and repository to dot.
 ❯ dot init
 ```
 
+## Extension
+Incremental search and install.  
+```console
+normal
+❯ dot list | fzf --reverse | xargs dot install
+cool
+❯ dot list | fzf-tmux -d 35% --preview 'echo ❯ dot install {}' --preview-window down:1 --ansi --reverse --prompt='install dotfile is ' | xargs dot install
+```
+
 ## Using Library
 - [Commandy](https://github.com/atsushi130/Commandy)
 - [Scripty](https://github.com/atsushi130/Scripty)
