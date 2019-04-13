@@ -25,6 +25,7 @@
 		0D1179482258ECEA00CB2C82 /* Install+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1179472258ECEA00CB2C82 /* Install+Error.swift */; };
 		0D11794B225A001F00CB2C82 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11794A225A001F00CB2C82 /* Spinner.swift */; };
 		0D11794F225A097800CB2C82 /* String+Scripty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11794E225A097800CB2C82 /* String+Scripty.swift */; };
+		0D1179572261D72700CB2C82 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1179562261D72700CB2C82 /* List.swift */; };
 		OBJ_284 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_239 /* AFError.swift */; };
 		OBJ_285 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_240 /* Alamofire.swift */; };
 		OBJ_286 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_241 /* DispatchQueue+Alamofire.swift */; };
@@ -471,6 +472,7 @@
 		0D1179472258ECEA00CB2C82 /* Install+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install+Error.swift"; sourceTree = "<group>"; };
 		0D11794A225A001F00CB2C82 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		0D11794E225A097800CB2C82 /* String+Scripty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Scripty.swift"; sourceTree = "<group>"; };
+		0D1179562261D72700CB2C82 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commandy::Commandy::Product" /* Commandy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Commandy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Moya::Moya::Product" /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1070,7 +1072,7 @@
 			path = ".build/checkouts/Moya.git-6694170196217433102/Sources/Moya";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1079,7 +1081,6 @@
 				OBJ_36 /* Dependencies */,
 				OBJ_268 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_56 /* Plugins */ = {
@@ -1354,6 +1355,7 @@
 				OBJ_10 /* DotfilesRepositoryRegister.swift */,
 				OBJ_11 /* GithubTokenRegister.swift */,
 				0D1179442258B4CF00CB2C82 /* Version.swift */,
+				0D1179562261D72700CB2C82 /* List.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -1671,7 +1673,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_268 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2027,6 +2029,7 @@
 				OBJ_601 /* Dotfile.swift in Sources */,
 				OBJ_602 /* DotfileConfiguration.swift in Sources */,
 				OBJ_603 /* Resource.swift in Sources */,
+				0D1179572261D72700CB2C82 /* List.swift in Sources */,
 				OBJ_604 /* GithubResource.swift in Sources */,
 				OBJ_605 /* main.swift in Sources */,
 				0D11794F225A097800CB2C82 /* String+Scripty.swift in Sources */,
