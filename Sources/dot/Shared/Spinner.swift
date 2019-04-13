@@ -18,9 +18,9 @@ final class Spinner {
             .subscribe(onNext: { [weak self] string in
                 guard let `self` = self else { return }
                 if self.spinning {
-                    let script = Scripty.builder
-                        | "echo -n -e \"\r\u{1b}[32m\(self.spinners[self.spinnerIndex % self.spinners.count]) \(string)\""
-                    script.exec()
+                    "\(self.spinners[self.spinnerIndex % self.spinners.count]) \(string)"
+                        .colorize(color: .green)
+                        .echo(overwrite: true, newline: false)
                     self.spinnerIndex += 1
                     self.triggerSpin.onNext(string)
                 }
