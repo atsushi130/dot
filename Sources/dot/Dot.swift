@@ -11,6 +11,7 @@ import Commandy
 enum Dot: String, Cli {
     
     case install
+    case list
     case token
     case repository
     case version
@@ -18,6 +19,7 @@ enum Dot: String, Cli {
     func run() throws {
         switch self {
         case .install:    try Install.run()
+        case .list:       try List.run()
         case .token:      try GithubTokenRegister.run()
         case .repository: try DotfilesRepositoryRegister.run()
         case .version:    try Version.run()
