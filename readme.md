@@ -78,6 +78,9 @@ cool
 ❯ dot list | fzf-tmux -d 35% --preview 'echo ❯ dot install {}' --preview-window down:1 --ansi --reverse --prompt='install dotfile is ' | xargs dot install
 ```
 
+## Gif
+<img src="./resources/dot.gif" />
+
 ## Using Library
 - [Commandy](https://github.com/atsushi130/Commandy)
 - [Scripty](https://github.com/atsushi130/Scripty)
