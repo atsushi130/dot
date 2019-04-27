@@ -5,7 +5,7 @@
 <p align="center"><i>dot is dotfiles manage cli.</i></p>
 
 <p align="center">
-    <a href=".license-mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a> 
+    <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fatsushi130%2Fdot?ref=badge_shield"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fatsushi130%2Fdot.svg"></a>
 </p>
 
 ## Installation via Homebrew
@@ -87,4 +87,6 @@ cool
 - [Moya](https://github.com/Moya/Moya)
 
 ## License
-dot is available under the MIT license. See the [LICENSE file](https://github.com/atsushi130/dot/blob/master/license-mit).
+dot is available under the MIT license. See the [LICENSE file](https://github.com/atsushi130/dot/blob/master/license).
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fatsushi130%2Fdot.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fatsushi130%2Fdot?ref=badge_large)
