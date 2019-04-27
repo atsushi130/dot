@@ -8,6 +8,9 @@
     <a href=".license-mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a> 
 </p>
 
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fatsushi130%2Fdot.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fatsushi130%2Fdot?ref=badge_large)
+
 ## Installation via Homebrew
 ```console
 ❯ brew tap atsushi130/tap
@@ -33,6 +36,7 @@ Please make dot.json confirm to the format, or generate by `dot init` command. A
 ## Usage
 First, generate Github access token. [[Here](https://github.com/settings/tokens/new)]
 ![image](https://user-images.githubusercontent.com/11363154/55290785-9526c000-5412-11e9-92cc-861da7248307.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fatsushi130%2Fdot.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fatsushi130%2Fdot?ref=badge_shield)
 
 Next, register generated Github access token and repository to dot.
 ```console
