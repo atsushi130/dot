@@ -5,6 +5,8 @@
 <p align="center"><i>dot is dotfiles manage cli.</i></p>
 
 <p align="center">
+    <a href="https://github.com/atsushi130/dot.git"><img src="https://img.shields.io/badge/Swift-dot-3B5998.svg"></a> 
+    <img src="https://img.shields.io/badge/Swift-5-ffac45.svg">
     <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fatsushi130%2Fdot?ref=badge_shield"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fatsushi130%2Fdot.svg"></a>
 </p>
 
